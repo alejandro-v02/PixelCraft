@@ -16,7 +16,8 @@ function handleDelete(idDelete){
 }
 
 function handleAddUser(){
-  const newId= userData.length + 1;
+  if(!newUser.name.trim() || !newUser.email.trim()) return;
+  const newId= userData.length > 0 ? Math.max(...userData.map(u => u.id)) + 1 :1;
   setUserData([...userData, {id:newId, ...newUser}]);
   setNewUser({ name: "", email:"", role:""});
 }
@@ -41,16 +42,19 @@ user.name.toLowerCase().includes(searchUser.toLowerCase()));
       <div>
         <input type="text"
           value={newUser.name}
+          required
           onChange={(e)=> setNewUser({...newUser,name:e.target.value})}
           placeholder="Nombre..."
           className="border border-gray-300 rounded-lg p-1.5 m-1"  />
         <input type="email"
           value={newUser.email}
+          required
           onChange={(e)=> setNewUser({...newUser,email:e.target.value})}
           placeholder="Correo electronico..."
           className="border border-gray-300 rounded-lg p-1.5 m-1"  />
         <input type="text"
           value={newUser.role}
+          required
           onChange={(e)=> setNewUser({...newUser,role: e.target.value})}
           placeholder="Rol..."
           className="border border-gray-300 rounded-lg p-1.5 m-1" />
