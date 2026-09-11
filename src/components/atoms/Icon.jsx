@@ -1,6 +1,6 @@
 function Icon({name}){
     return(
-        <span>
+        <span className="text-2xl" >
             {name}
         </span>
     );

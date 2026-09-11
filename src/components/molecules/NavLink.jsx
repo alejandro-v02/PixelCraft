@@ -2,7 +2,10 @@ import Icon from "../atoms/Icon";
 
 function NavLink({iconName,label,onClick}){
     return(
-        <div onClick={onClick}>
+        <div onClick={onClick} className="
+        flex items-center gap-2 p-2
+        cursor-pointer hover:bg-gray-500 
+        transition-colors duration-700 rounded-lg" >
         <Icon name={iconName}/>
         <span>{label}</span>
         </div>
