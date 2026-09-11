@@ -4,9 +4,9 @@ function NavLink({iconName,label,onClick,isActive}){
     return(
         <div onClick={onClick} className={`
         flex items-center gap-2 p-2
-        cursor-pointer hover:bg-gray-500 
+        cursor-pointer hover:bg-gray-200 
         transition-colors duration-700 rounded-lg
-        ${isActive ? "bg-blue-600":"hover:bg-gray-700"}`} >
+        ${isActive ? "bg-gray-200 text-black":"hover:bg-gray-800"}`} >
         <Icon name={iconName}/>
         <span>{label}</span>
         </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 function Users() {
 const [selectRow,setSelectRow]=useState(null);
 const [searchUser,setSearchUser]=useState("");
+const [newUser,setNewUser]=useState({name: "", email:"", role:""});
 
 const [userData,setUserData]=useState([
   { id: 1, name: "Ana Torres", email: "ana@correo.com", role: "Admin" },
@@ -13,6 +14,13 @@ const [userData,setUserData]=useState([
 function handleDelete(idDelete){
   setUserData(userData.filter((user)=> user.id !== idDelete))
 }
+
+function handleAddUser(){
+  const newId= userData.length + 1;
+  setUserData([...userData, {id:newId, ...newUser}]);
+  setNewUser({ name: "", email:"", role:""});
+}
+
 const filteredUsers=userData.filter((user)=>
 user.name.toLowerCase().includes(searchUser.toLowerCase()));
 
@@ -28,6 +36,29 @@ user.name.toLowerCase().includes(searchUser.toLowerCase()));
         placeholder="Buscar usuario"
         className=" border border-gray-300 text-gray-600 rounded-lg p-2"
         />
+      </div>
+
+      <div>
+        <input type="text"
+          value={newUser.name}
+          onChange={(e)=> setNewUser({...newUser,name:e.target.value})}
+          placeholder="Nombre..."
+          className="border border-gray-300 rounded-lg p-1.5 m-1"  />
+        <input type="email"
+          value={newUser.email}
+          onChange={(e)=> setNewUser({...newUser,email:e.target.value})}
+          placeholder="Correo electronico..."
+          className="border border-gray-300 rounded-lg p-1.5 m-1"  />
+        <input type="text"
+          value={newUser.role}
+          onChange={(e)=> setNewUser({...newUser,role: e.target.value})}
+          placeholder="Rol..."
+          className="border border-gray-300 rounded-lg p-1.5 m-1" />
+          <button 
+          onClick={handleAddUser}
+          className="bg-black text-white p-1.5 rounded-2xl cursor-pointer
+          transition-transform duration-150 active:scale-90 hover:scale-100" >
+            Registrar</button>
       </div>
 
       <div className="rounded-lg overflow-hidden mt-4 border border-gray-300 " >
