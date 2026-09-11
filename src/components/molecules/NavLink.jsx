@@ -7,7 +7,7 @@ function NavLink({iconName,label,onClick,isActive}){
         cursor-pointer hover:bg-gray-200 
         transition-colors duration-700 rounded-lg
         ${isActive ? "bg-gray-200 text-black":"hover:bg-gray-800"}`} >
-        <Icon name={iconName}/>
+        <Icon icon={iconName}/>
         <span>{label}</span>
         </div>
     );

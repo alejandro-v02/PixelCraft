@@ -1,8 +1,6 @@
-function Icon({name}){
+function Icon({icon:IconComponent, className="w-6 h-6"}){
     return(
-        <span className="text-2xl" >
-            {name}
-        </span>
+        <IconComponent className={className}/>
     );
 }
 

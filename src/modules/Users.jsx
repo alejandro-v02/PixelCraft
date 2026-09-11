@@ -40,6 +40,7 @@ user.name.toLowerCase().includes(searchUser.toLowerCase()));
       </div>
 
       <div>
+        <h2 className="text-xl font-bold text-gray-500" >Nuevo Usuario</h2>
         <input type="text"
           value={newUser.name}
           required
@@ -82,14 +83,16 @@ user.name.toLowerCase().includes(searchUser.toLowerCase()));
             return(
             <tr key={user.id}
             onClick={()=>setSelectRow(user.id)}
-            className={`hover:bg-gray-200 transition-colors duration-500 cursor-pointer
-            ${isSelect ? "bg-blue-100" : ""}`} >
+            className={`hover:bg-gray-200 transition-colors duration-500
+            ${isSelect ? "bg-gray-200" : ""}`} >
 
               <td className="p-2 text-center  " >{user.name}</td>
               <td className="p-2 text-center  " >{user.email}</td>
               <td className="p-2 text-center  " >{user.role}</td>
-              <td>
-                <button onClick={(e) => {e.stopPropagation(); handleDelete(user.id);}} >
+              <td className="text-center p-2" >
+                <button onClick={(e) => {e.stopPropagation(); handleDelete(user.id);}}
+                  className="bg-red-600 hover:bg-red-700 rounded-full p-2 text-white text-xs font-semibold px-3
+                  transition-transform duration-250 active:scale-90 hover:scale-100 cursor-pointer">
                   Eliminar</button>
               </td>
             </tr>
