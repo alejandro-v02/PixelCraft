@@ -22,6 +22,7 @@ function DashboardLayout({modules}){
         <Sidebar
         modules={modules}
         onSelectModule={setSelectedModuleId}
+        activeModule={selectedModuleId}
         />
         <div className="flex-1 p-4" >
             <Header title={"Mi App"} />
