@@ -1,4 +1,7 @@
-function    Buttons(){
+import { useState } from "react";
+
+function  Buttons(){
+    const [isLoading,setIsLoading]= useState(false);
     return(
         <div>
             <div className="flex justify-center items-center text-center" >
@@ -59,6 +62,17 @@ function    Buttons(){
                     <button className="mt-2 px-4 py-1.5 bg-indigo-600 text-white rounded-full cursor-pointer
                     hover:-traslate-y-1 hover:scale-110 transition-all duration-500 shadow-sm hover:shadow-lg"
                     >Send</button>
+                </div>
+
+                <div className="flex flex-col mt-2 w-48 h-24 items-center shadow-lg rounded-lg border border-gray-200" >
+                    <h3 className="mt-2 font-bold" >Loading Button</h3>
+                    <button onClick={()=> setIsLoading(true)}
+                    className="flex items-center gap-2 mt-2 px-4 py-1.5 rounded-full cursor-pointer
+                    bg-blue-600 text-white"
+                    >{isLoading && (
+                        <div className="w-4 h-4 border-2 border-t-transparent rounded-full animate-spin" ></div>
+                    )}
+                    Send</button>
                 </div>
             </div>
         </div>
