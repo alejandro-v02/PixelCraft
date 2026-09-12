@@ -11,6 +11,16 @@ const [userData,setUserData]=useState([
   { id: 3, name: "Laura Gómez", email: "laura@correo.com", role: "Aprendiz" },
 ])
 
+const filteredUsers=userData.filter((user)=>
+user.name.toLowerCase().includes(searchUser.toLowerCase()));
+
+const [currentPage,setCurrentPage]=useState(1);
+const itemsperPage=2;
+const totalPages=Math.ceil(filteredUsers.length / itemsperPage);
+const startIndex =(currentPage -1)* itemsperPage;
+const paginatedUsers= filteredUsers.slice(startIndex, startIndex + itemsperPage);
+
+
 function handleDelete(idDelete){
   setUserData(userData.filter((user)=> user.id !== idDelete))
 }
@@ -22,8 +32,6 @@ function handleAddUser(){
   setNewUser({ name: "", email:"", role:""});
 }
 
-const filteredUsers=userData.filter((user)=>
-user.name.toLowerCase().includes(searchUser.toLowerCase()));
 
   return (
     <div>
@@ -77,7 +85,7 @@ user.name.toLowerCase().includes(searchUser.toLowerCase()));
           </tr>
         </thead>
         <tbody>
-          {filteredUsers.map((user) => {
+          {paginatedUsers.map((user) => {
             const isSelect=user.id=== selectRow;
 
             return(
@@ -100,6 +108,25 @@ user.name.toLowerCase().includes(searchUser.toLowerCase()));
           })}
         </tbody>
       </table>
+        <div className="flex justify-center items-center gap-2 mt-4">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(p => p - 1)}
+            className="px-3 py-1 border rounded-lg disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Anterior
+          </button>
+
+          <span>Página {currentPage} de {totalPages}</span>
+
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(p => p + 1)}
+            className="px-3 py-1 border rounded-lg disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Siguiente
+          </button>
+        </div>
       </div>
     </div>
   );
