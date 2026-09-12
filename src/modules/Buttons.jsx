@@ -48,9 +48,16 @@ function    Buttons(){
 
                 <div className="bg-gray-950  mt-2 rounded-lg items-center flex flex-col w-48 h-24" >
                     <h3 className="mt-2 font-bold text-white" >Neon Button</h3>
-                    <button className="text-cyan-400 px-4 py-1.5 rounded-full cursor-pointer
+                    <button className="text-cyan-400 mt-2 px-4 py-1.5 rounded-full cursor-pointer
                     bg-transparent border-2 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.6)]
                     hover:shadow-[0_0_25px_rgba(34,211,238,0.9)] transition-all duration-500"
+                    >Send</button>
+                </div>
+
+                <div className="flex flex-col mt-2 w-48 h-24 items-center shadow-lg rounded-lg border border-gray-200">
+                    <h3 className="mt-2 font-bold" >Lift Buttonn</h3>
+                    <button className="mt-2 px-4 py-1.5 bg-indigo-600 text-white rounded-full cursor-pointer
+                    hover:-traslate-y-1 hover:scale-110 transition-all duration-500 shadow-sm hover:shadow-lg"
                     >Send</button>
                 </div>
             </div>
