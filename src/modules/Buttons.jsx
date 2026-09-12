@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function  Buttons(){
     const [isLoading,setIsLoading]= useState(false);
+    const [isLiked, setIsLiked]= useState(false);
     return(
         <div>
             <div className="flex justify-center items-center text-center" >
@@ -82,6 +83,14 @@ function  Buttons(){
                     >Send
                     <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 rounded-full animate-pulse border-2 border-white"></span>
                     </button>
+                </div>
+
+                <div className="flex flex-col mt-2 w-48 h-24 items-center shadow-lg rounded-lg border border-gray-200" >
+                    <h3 className="mt-2 font-bold" >Like Button</h3>
+                    <button onClick={()=> setIsLiked(!isLiked)}
+                    className={`mt-2 px-4 py-1.5 rounded-full cursor-pointer transition-colors duration-500
+                    ${isLiked ? "bg-gradient-to-r from-amber-500 to-pink-600 text-white" : "bg-gray-200 text-gray-800"}`}
+                    >♥ Like</button>
                 </div>
             </div>
         </div>
