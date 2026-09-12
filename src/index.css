@@ -1,1 +1,9 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@theme {
+  /* Opción A: Reemplazar la fuente sans por defecto de Tailwind */
+  --font-sans: 'Poppins', sans-serif;
+
+  /* Opción B: Crear la clase específica "font-poppins" */
+  --font-poppins: 'Poppins', sans-serif;
+}
