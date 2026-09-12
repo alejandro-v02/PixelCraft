@@ -45,6 +45,14 @@ function    Buttons(){
                     border-b-4 border-emerald-700 active:border-b-0 active:traslate-y-1"
                     >Send</button>
                 </div>
+
+                <div className="bg-gray-950  mt-2 rounded-lg items-center flex flex-col w-48 h-24" >
+                    <h3 className="mt-2 font-bold text-white" >Neon Button</h3>
+                    <button className="text-cyan-400 px-4 py-1.5 rounded-full cursor-pointer
+                    bg-transparent border-2 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.6)]
+                    hover:shadow-[0_0_25px_rgba(34,211,238,0.9)] transition-all duration-500"
+                    >Send</button>
+                </div>
             </div>
         </div>
     )
