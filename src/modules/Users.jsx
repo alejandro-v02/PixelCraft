@@ -32,6 +32,10 @@ function handleAddUser(){
   setNewUser({ name: "", email:"", role:""});
 }
 
+function handleSearchChange(e){          // ← AGREGA ESTO
+  setSearchUser(e.target.value);         // ← AGREGA ESTO
+  setCurrentPage(1);                     // ← AGREGA ESTO
+}    
 
   return (
     <div>
@@ -41,7 +45,7 @@ function handleAddUser(){
         <input
         type="text"
         value={searchUser}
-        onChange={(e)=>setSearchUser(e.target.value)}
+        onChange={handleSearchChange}
         placeholder="Buscar usuario"
         className=" border border-gray-300 text-gray-600 rounded-lg p-2"
         />
