@@ -38,6 +38,13 @@ function    Buttons(){
                     hover:bg-white/20 transition-colors duration-500 cursor-pointer"
                     >Send</button>
                 </div>
+
+                <div className="flex flex-col m-2 shadow-lg w-48 h-24 items-center rounded-lg border border-gray-200" >
+                    <h3 className="mt-2 font-bold" >Button 3D</h3>
+                    <button className="bg-emerald-500 mt-2 text-white px-4 py-1 rounded-full cursor-pointer
+                    border-b-4 border-emerald-700 active:border-b-0 active:traslate-y-1"
+                    >Send</button>
+                </div>
             </div>
         </div>
     )
