@@ -4,7 +4,7 @@ import Header from "../organisms/Header";
 
 import Home from "../../modules/Home";
 import Users from "../../modules/Users";
-import Reports from "../../modules/Reports";
+import Buttons from "../../modules/Buttons";
 
 function DashboardLayout({modules}){
     const [selectedModuleId,setSelectedModuleId]=useState(modules[0].id);
@@ -12,7 +12,7 @@ function DashboardLayout({modules}){
     const moduleComponent={
         home:Home,
         users:Users,
-        reports:Reports
+        buttons:Buttons
     };
 
     const SelectedComponent=moduleComponent[selectedModuleId];

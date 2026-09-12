@@ -32,9 +32,9 @@ function handleAddUser(){
   setNewUser({ name: "", email:"", role:""});
 }
 
-function handleSearchChange(e){          // ← AGREGA ESTO
-  setSearchUser(e.target.value);         // ← AGREGA ESTO
-  setCurrentPage(1);                     // ← AGREGA ESTO
+function handleSearchChange(e){
+  setSearchUser(e.target.value);
+  setCurrentPage(1);
 }    
 
   return (
