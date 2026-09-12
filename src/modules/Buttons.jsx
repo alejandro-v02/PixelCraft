@@ -74,6 +74,15 @@ function  Buttons(){
                     )}
                     Send</button>
                 </div>
+
+                <div className="flex flex-col mt-2 w-48 h-24 items-center shadow-lg rounded-lg border border-gray-200" >
+                    <h3 className="mt-2 font-bold" >Badge Button</h3>
+                    <button className="bg-gray-700 text-white mt-2 px-4 py-1.5 rounded-full cursor-pointer
+                    relative "
+                    >Send
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 rounded-full animate-pulse border-2 border-white"></span>
+                    </button>
+                </div>
             </div>
         </div>
     )
