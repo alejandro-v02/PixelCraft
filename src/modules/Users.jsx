@@ -89,6 +89,13 @@ function handleSearchChange(e){
           </tr>
         </thead>
         <tbody>
+          {paginatedUsers.length === 0 && (
+            <tr>
+              <td colSpan="4" className="text-center p-4 text-gray-400">
+                No se encontraron usuarios
+              </td>
+            </tr>
+          )}
           {paginatedUsers.map((user) => {
             const isSelect=user.id=== selectRow;
 

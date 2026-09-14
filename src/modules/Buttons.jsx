@@ -80,7 +80,7 @@ function  Buttons(){
                     <h3 className="mt-2 font-bold" >Badge Button</h3>
                     <button className="bg-gray-700 text-white mt-2 px-4 py-1.5 rounded-full cursor-pointer
                     relative "
-                    >Send
+                    >Notify
                     <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 rounded-full animate-pulse border-2 border-white"></span>
                     </button>
                 </div>
@@ -92,6 +92,25 @@ function  Buttons(){
                     ${isLiked ? "bg-gradient-to-r from-amber-500 to-pink-600 text-white" : "bg-gray-200 text-gray-800"}`}
                     >♥ Like</button>
                 </div>
+
+                <div className="flex flex-col mt-2 w-48 h-24 items-center shadow-lg rounded-lg border border-gray-200">
+                    <h3 className="mt-2 font-bold">Ring Button</h3>
+                    <button className="bg-purple-600 mt-2 text-white px-4 py-1.5 rounded-full cursor-pointer
+                    focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-offset-2
+                    transition-shadow duration-700"
+                    >Send</button>
+                </div>
+
+                <div className="flex flex-col mt-2 w-48 h-24 items-center shadow-lg rounded-lg border border-gray-200" >
+                    <h3 className="mt-2 font-bold" >Shine Button</h3>
+                    <button className="relative mt-2 overflow-hidden bg-slate-800 text-white px-4 py-1.5 rounded-full cursor-pointer
+                    before:content-[''] before:absolute before:top-0 before:w-1/4 before:h-full before:bg-white/30
+                    before:skew-x-[-20deg] before:left-[-75%]
+                    hover:before:translate-x-[400%] before:transition-transform before:duration-700"
+                    >Send</button>
+                </div>
+
+                <div></div>
             </div>
         </div>
     )
