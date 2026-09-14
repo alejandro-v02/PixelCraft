@@ -8,7 +8,7 @@ function  Buttons(){
             <div className="flex justify-center items-center text-center" >
             <h2 className="mt-4 mb-4 font-extrabold text-2xl">Buttons</h2>
             </div>
-            <div className="flex flex-row flex-wrap justify-center gap-4 p-4" >
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(192px,1fr))] gap-4 p-4" >
                 <div className="flex mt-2 flex-col m-2 shadow-lg w-48 h-24 items-center rounded-lg border border-gray-200">
                     <h3 className="mt-2 font-bold">Solid Button</h3>
                     <button

@@ -5,6 +5,7 @@ import Header from "../organisms/Header";
 import Home from "../../modules/Home";
 import Users from "../../modules/Users";
 import Buttons from "../../modules/Buttons";
+import SearchBar from '../../modules/Search-bar';
 
 function DashboardLayout({modules}){
     const [selectedModuleId,setSelectedModuleId]=useState(modules[0].id);
@@ -12,7 +13,8 @@ function DashboardLayout({modules}){
     const moduleComponent={
         home:Home,
         users:Users,
-        buttons:Buttons
+        buttons:Buttons,
+        searchbar:SearchBar,
     };
 
     const SelectedComponent=moduleComponent[selectedModuleId];
