@@ -38,6 +38,17 @@ function SearchBar(){
                     </div>
                 </di>
 
+                <div className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
+                    <h3 className="mt-2 font-bold">Underline Search</h3>
+                    <div className="relative mt-2 focus-within:[&>span]:scale-x-100">
+                        <input type="text"
+                        placeholder="Search..."
+                        className="border-b-2 border-gray-300 bg-transparent p-1 pl-2 outline-none"/>
+                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-600
+                        scale-x-0 origin-left transition-transform duration-300"></span>
+                    </div>
+                </div>
+
             </div>
         </div>
     )
