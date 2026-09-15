@@ -110,6 +110,14 @@ function  Buttons(){
                     >Send</button>
                 </div>
 
+                <div className="flex flex-col mt-2 w-48 h-24 items-center shadow-lg rounded-lg border border-gray-200" >
+                    <h3 className="mt-2 font-bold" >Gradient text Button</h3>
+                    <button className="bg-white mt-2 border-2 border-gray-200 px-4 py-1.5 rounded-full cursor-pointer
+                    font-bold text-lg bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent
+                    hover:border-purple-300 transition-colors duration-500"
+                    >Send</button>
+                </div>
+
                 <div></div>
             </div>
         </div>
