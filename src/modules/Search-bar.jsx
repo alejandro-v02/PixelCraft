@@ -20,6 +20,14 @@ function SearchBar(){
                 focus:ring-4 focus:ring-gray-300 transition-shadow duration-700" />
                 </div>
 
+                <div className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
+                    <h3 className="mt-2 font-bold">Animated Border Search</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    className="mt-2 border-2 border-gray-300 p-1 pl-2 rounded-full outline-none
+                    focus:border-blue-600 transition-colors duration-700"/>
+                </div>
+
             </div>
         </div>
     )
