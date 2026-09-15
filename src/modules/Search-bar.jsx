@@ -28,6 +28,16 @@ function SearchBar(){
                     focus:border-blue-600 transition-colors duration-700"/>
                 </div>
 
+                <di className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
+                    <h3 className="mt-2 font-bold">Gradient Border Search</h3>
+                    <div className="mt-2 bg-gradient-to-r from-purple-500 to-pink-700 p-1 rounded-full
+                    focus-within:from-blue-600 focus-within:to-cyan-500 transition-colors duration-700">
+                        <input type="text"
+                        placeholder="Search..."
+                        className="bg-white p-1 pl-2 rounded-full outline-none"/>
+                    </div>
+                </di>
+
             </div>
         </div>
     )
