@@ -3,9 +3,15 @@ import { use, useState } from "react"
 function SearchBar(){
     const [searchText,setSearchText]=useState(""); //Character Count Search
     const [query,setQuery]=useState("");//No Result Search
-    //
+    //History Search
     const [history,setHistory]=useState([]);
     const [term,setTerm]=useState("");
+    //filtrar una lista y mostrar un dropdown de sugerencias
+    const opciones=["React", "Angular", "Vue", "Svelte", "NestJs", "FastAPI", "Django", "Laravel"]
+    const [autocomplete,setAutocompleted]=useState("");
+    const filtradas= opciones.filter(op =>
+        op.toLowerCase().includes(autocomplete.toLowerCase())
+    );
 
     return(
         <div>
@@ -111,6 +117,27 @@ function SearchBar(){
                             </span>
                         ))}
                     </div>
+                </div>
+
+                <div className="flex flex-col relative border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
+                    <h3 className="mt-2 font-bold">Search Autocomplete</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    value={autocomplete}
+                    onChange={(e)=> setAutocompleted(e.target.value)}
+                    className="mt-2 border border-gray-300 p-1 pl-2 rounded-full outline-none w-48"
+                    />
+                    {autocomplete.length > 0 && filtradas.length > 0 && (
+                        <div className="absolute top-20 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-10 max-h-32 overflow-y-auto">
+                            {filtradas.map((item,index)=>(
+                                <div
+                                key={index}
+                                onClick={() =>setAutocompleted(item)}
+                                className="px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                                    {item}</div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
             </div>
