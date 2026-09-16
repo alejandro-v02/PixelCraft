@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { use, useState } from "react"
 
 function SearchBar(){
     const [searchText,setSearchText]=useState(""); //Character Count Search
-    const [query,setQuery]=useState("");
+    const [query,setQuery]=useState("");//No Result Search
+    //
+    const [history,setHistory]=useState([]);
+    const [term,setTerm]=useState("");
+
     return(
         <div>
             <div className="flex justify-center items-center text-center" >
@@ -32,7 +36,7 @@ function SearchBar(){
                     focus:border-blue-600 transition-colors duration-700"/>
                 </div>
 
-                <di className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
+                <div className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
                     <h3 className="mt-2 font-bold">Gradient Border Search</h3>
                     <div className="mt-2 bg-gradient-to-r from-purple-500 to-pink-700 p-1 rounded-full
                     focus-within:from-blue-600 focus-within:to-cyan-500 transition-colors duration-700">
@@ -40,7 +44,7 @@ function SearchBar(){
                         placeholder="Search..."
                         className="bg-white p-1 pl-2 rounded-full outline-none"/>
                     </div>
-                </di>
+                </div>
 
                 <div className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
                     <h3 className="mt-2 font-bold">Underline Search</h3>
@@ -57,7 +61,7 @@ function SearchBar(){
                     <h3 className="mt-2 font-bold">Expanding Search</h3>
                     <input type="text"
                     placeholder="Search..."
-                    className="border border-gray-200 p-1 pl-2 rounded-full outline-none w-24
+                    className="mt-2 border border-gray-400 p-1 pl-2 rounded-full outline-none w-24
                     focus:w-48 transition-all duration-500 focus:shadow-lg"/>
                 </div>
 
@@ -67,7 +71,7 @@ function SearchBar(){
                     placeholder="Search..."
                     value={searchText}
                     onChange={(e)=> setSearchText(e.target.value)}
-                    className="border border-gray-200 p-1 pl-2 rounded-full outline-none
+                    className="mt-1.5 border border-gray-200 p-1 pl-2 rounded-full outline-none
                     "/>
                     <span className="text-xs text-gray-400 mt-1">{searchText.length} caracteres</span>
                 </div>
@@ -83,6 +87,30 @@ function SearchBar(){
                         <p className="text-[12px] text-red-500 mt-1">
                             Sin resultados para "{query}"</p>
                     )}
+                </div>
+
+                <div className="flex flex-col border border-gray-200 w-58 h-28 items-center rounded-lg shadow-lg">
+                    <h3 className="mt-2 font-bold">Search History</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    value={term}
+                    onChange={(e)=> setTerm(e.target.value)}
+                    onKeyDown={(e)=>{
+                        if(e.key === "Enter" && term.trim() !== ""){
+                            setHistory([...history,term])
+                            setTerm("");
+                        }
+                    }}
+                    className="border mb-1 border-gray-200 p-1 pl-2 rounded-full outline-none"/>
+                    <div>
+                        {history.map((item,index)=>(
+                            <span
+                            key={index}
+                            className="text-sm m-1 shadow-lg bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                                {item}
+                            </span>
+                        ))}
+                    </div>
                 </div>
 
             </div>
