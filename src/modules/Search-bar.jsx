@@ -1,7 +1,8 @@
 import { useState } from "react"
 
 function SearchBar(){
-    const [searchText,setSearchText]=useState("");
+    const [searchText,setSearchText]=useState(""); //Character Count Search
+    const [query,setQuery]=useState("");
     return(
         <div>
             <div className="flex justify-center items-center text-center" >
@@ -69,6 +70,19 @@ function SearchBar(){
                     className="border border-gray-200 p-1 pl-2 rounded-full outline-none
                     "/>
                     <span className="text-xs text-gray-400 mt-1">{searchText.length} caracteres</span>
+                </div>
+
+                <div className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
+                    <h3 className="mt-2 font-bold">No Result Search</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    value={query}
+                    onChange={(e)=> setQuery(e.target.value)}
+                    className="border border-gray-200 p-1 pl-2 rounded-full outline-none"/>
+                    {query.length>0 && query.toLocaleLowerCase() !== "laptop" && (
+                        <p className="text-[12px] text-red-500 mt-1">
+                            Sin resultados para "{query}"</p>
+                    )}
                 </div>
 
             </div>
