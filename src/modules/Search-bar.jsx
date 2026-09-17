@@ -1,4 +1,4 @@
-import { use, useState } from "react"
+import { useState } from "react"
 
 function SearchBar(){
     const [searchText,setSearchText]=useState(""); //Character Count Search
@@ -95,7 +95,7 @@ function SearchBar(){
                     )}
                 </div>
 
-                <div className="flex flex-col border border-gray-200 w-58 h-28 items-center rounded-lg shadow-lg">
+                <div className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
                     <h3 className="mt-2 font-bold">Search History</h3>
                     <input type="text"
                     placeholder="Search..."
@@ -107,12 +107,12 @@ function SearchBar(){
                             setTerm("");
                         }
                     }}
-                    className="border mb-1 border-gray-200 p-1 pl-2 rounded-full outline-none"/>
+                    className="border border-gray-200 p-1 pl-2 rounded-full outline-none"/>
                     <div>
                         {history.map((item,index)=>(
                             <span
                             key={index}
-                            className="text-sm m-1 shadow-lg bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                            className="text-[12px]  shadow-lg bg-gray-100 text-gray-700 px-1 py-0.3 rounded-full">
                                 {item}
                             </span>
                         ))}
@@ -138,6 +138,14 @@ function SearchBar(){
                             ))}
                         </div>
                     )}
+                </div>
+
+                <div className="flex flex-col items-center bg-gray-200 border border-gray-300 rounded-lg w-58 h-24 " >
+                    <h3 className="mt-2 font-bold text-gray-600" >Neumorphism Search</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    className="mt-2 text-gray-600 bg-gray-200 p-1 pl-2 rounded-full outline-none
+                    shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff]"/>
                 </div>
 
             </div>
