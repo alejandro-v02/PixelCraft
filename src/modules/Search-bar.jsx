@@ -12,6 +12,9 @@ function SearchBar(){
     const filtradas= opciones.filter(op =>
         op.toLowerCase().includes(autocomplete.toLowerCase())
     );
+    //Shake Error Search
+    const [shake,setShake]= useState(false);
+    const [errorTerm,setErrorTerm]= useState("");
 
     return(
         <div>
@@ -146,6 +149,22 @@ function SearchBar(){
                     placeholder="Search..."
                     className="mt-2 text-gray-600 bg-gray-200 p-1 pl-2 rounded-full outline-none
                     shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff]"/>
+                </div>
+
+                <div className="flex flex-col items-center border border-gray-200 rounded-lg w-58 h-24 " >
+                    <h3 className="mt-2 font-bold" >Shake Error Search</h3>
+                    <input type="tex"
+                    placeholder="Search..."
+                    value={errorTerm}
+                    onChange={(e) => setErrorTerm(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" && errorTerm.trim() === ""){
+                            setShake(true)
+                            setTimeout(() => setShake(false),500)
+                        }
+                    }}
+                    className={`mt-1 border border-gray-200 p-1 pl-2 rounded-full outline-none transition-colors duration-500 
+                    ${shake ? "animate-[shake_0.5s_ease-in-out] border-2 border-red-600 ": ""}`}/>
                 </div>
 
             </div>
