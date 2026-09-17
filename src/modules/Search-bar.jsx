@@ -15,6 +15,9 @@ function SearchBar(){
     //Shake Error Search
     const [shake,setShake]= useState(false);
     const [errorTerm,setErrorTerm]= useState("");
+    //Typing Indicator Search
+    const [typing,setTyping] = useState(false);
+    const [typingText,setTypingText] = useState("");
 
     return(
         <div>
@@ -143,7 +146,7 @@ function SearchBar(){
                     )}
                 </div>
 
-                <div className="flex flex-col items-center bg-gray-200 border border-gray-300 rounded-lg w-58 h-24 " >
+                <div className="flex flex-col items-center bg-gray-200 border shadow-lg border-gray-300 rounded-lg w-58 h-24 " >
                     <h3 className="mt-2 font-bold text-gray-600" >Neumorphism Search</h3>
                     <input type="text"
                     placeholder="Search..."
@@ -151,7 +154,7 @@ function SearchBar(){
                     shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff]"/>
                 </div>
 
-                <div className="flex flex-col items-center border border-gray-200 rounded-lg w-58 h-24 " >
+                <div className="flex flex-col items-center border shadow-lg border-gray-200 rounded-lg w-58 h-24 " >
                     <h3 className="mt-2 font-bold" >Shake Error Search</h3>
                     <input type="tex"
                     placeholder="Search..."
@@ -165,6 +168,25 @@ function SearchBar(){
                     }}
                     className={`mt-1 border border-gray-200 p-1 pl-2 rounded-full outline-none transition-colors duration-500 
                     ${shake ? "animate-[shake_0.5s_ease-in-out] border-2 border-red-600 ": ""}`}/>
+                </div>
+
+                <div className="flex flex-col items-center border shadow-lg border-gray-200 rounded-lg w-58 h-24 " >
+                    <h3 className="mt-2 font-bold">Typing Indicator Search</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    value={typingText}
+                    onChange={(e) => {
+                        setTypingText(e.target.value);
+                        setTyping(e.target.value.length > 0)
+                    }}
+                    className="mt-2 border border-gray-200 p-1 pl-2 rounded-full outline-none"/>
+                    {typing && (
+                        <div  className="flex gap-1 mt-2">
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+                        </div>
+                    )}
                 </div>
 
             </div>
