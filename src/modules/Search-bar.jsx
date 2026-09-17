@@ -1,11 +1,23 @@
-import { use, useState } from "react"
+import { useState } from "react"
 
 function SearchBar(){
     const [searchText,setSearchText]=useState(""); //Character Count Search
     const [query,setQuery]=useState("");//No Result Search
-    //
+    //History Search
     const [history,setHistory]=useState([]);
     const [term,setTerm]=useState("");
+    //filtrar una lista y mostrar un dropdown de sugerencias
+    const opciones=["React", "Angular", "Vue", "Svelte", "NestJs", "FastAPI", "Django", "Laravel"]
+    const [autocomplete,setAutocompleted]=useState("");
+    const filtradas= opciones.filter(op =>
+        op.toLowerCase().includes(autocomplete.toLowerCase())
+    );
+    //Shake Error Search
+    const [shake,setShake]= useState(false);
+    const [errorTerm,setErrorTerm]= useState("");
+    //Typing Indicator Search
+    const [typing,setTyping] = useState(false);
+    const [typingText,setTypingText] = useState("");
 
     return(
         <div>
@@ -89,7 +101,7 @@ function SearchBar(){
                     )}
                 </div>
 
-                <div className="flex flex-col border border-gray-200 w-58 h-28 items-center rounded-lg shadow-lg">
+                <div className="flex flex-col border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
                     <h3 className="mt-2 font-bold">Search History</h3>
                     <input type="text"
                     placeholder="Search..."
@@ -101,16 +113,80 @@ function SearchBar(){
                             setTerm("");
                         }
                     }}
-                    className="border mb-1 border-gray-200 p-1 pl-2 rounded-full outline-none"/>
+                    className="border border-gray-200 p-1 pl-2 rounded-full outline-none"/>
                     <div>
                         {history.map((item,index)=>(
                             <span
                             key={index}
-                            className="text-sm m-1 shadow-lg bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                            className="text-[12px]  shadow-lg bg-gray-100 text-gray-700 px-1 py-0.3 rounded-full">
                                 {item}
                             </span>
                         ))}
                     </div>
+                </div>
+
+                <div className="flex flex-col relative border border-gray-200 w-58 h-24 items-center rounded-lg shadow-lg">
+                    <h3 className="mt-2 font-bold">Search Autocomplete</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    value={autocomplete}
+                    onChange={(e)=> setAutocompleted(e.target.value)}
+                    className="mt-2 border border-gray-300 p-1 pl-2 rounded-full outline-none w-48"
+                    />
+                    {autocomplete.length > 0 && filtradas.length > 0 && (
+                        <div className="absolute top-20 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-10 max-h-32 overflow-y-auto">
+                            {filtradas.map((item,index)=>(
+                                <div
+                                key={index}
+                                onClick={() =>setAutocompleted(item)}
+                                className="px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                                    {item}</div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+
+                <div className="flex flex-col items-center bg-gray-200 border shadow-lg border-gray-300 rounded-lg w-58 h-24 " >
+                    <h3 className="mt-2 font-bold text-gray-600" >Neumorphism Search</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    className="mt-2 text-gray-600 bg-gray-200 p-1 pl-2 rounded-full outline-none
+                    shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff]"/>
+                </div>
+
+                <div className="flex flex-col items-center border shadow-lg border-gray-200 rounded-lg w-58 h-24 " >
+                    <h3 className="mt-2 font-bold" >Shake Error Search</h3>
+                    <input type="tex"
+                    placeholder="Search..."
+                    value={errorTerm}
+                    onChange={(e) => setErrorTerm(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" && errorTerm.trim() === ""){
+                            setShake(true)
+                            setTimeout(() => setShake(false),500)
+                        }
+                    }}
+                    className={`mt-1 border border-gray-200 p-1 pl-2 rounded-full outline-none transition-colors duration-500 
+                    ${shake ? "animate-[shake_0.5s_ease-in-out] border-2 border-red-600 ": ""}`}/>
+                </div>
+
+                <div className="flex flex-col items-center border shadow-lg border-gray-200 rounded-lg w-58 h-24 " >
+                    <h3 className="mt-2 font-bold">Typing Indicator Search</h3>
+                    <input type="text"
+                    placeholder="Search..."
+                    value={typingText}
+                    onChange={(e) => {
+                        setTypingText(e.target.value);
+                        setTyping(e.target.value.length > 0)
+                    }}
+                    className="mt-2 border border-gray-200 p-1 pl-2 rounded-full outline-none"/>
+                    {typing && (
+                        <div  className="flex gap-1 mt-2">
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+                        </div>
+                    )}
                 </div>
 
             </div>
