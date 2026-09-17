@@ -8,7 +8,8 @@ const modules=[
   {id:'home',icon:HomeIcon,name:'Inicio'},
   {id:'users',icon:UsersIcon,name:'Usuarios'},
   {id:'buttons',icon:ButtonsIcon,name:'Buttons'},
-  {id:'searchbar',icon:SearchIcon,name:'Search Bar'}
+  {id:'searchbar',icon:SearchIcon,name:'Search Bar'},
+  {id:'headers',icon:HomeIcon,name:'Headers'},
 ]
 
 function App() {
