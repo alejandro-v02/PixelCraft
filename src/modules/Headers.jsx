@@ -3,6 +3,9 @@ import { useState } from "react";
 function Headers(){
     //header con dropdown de usuario
     const [menuOpen,setMenuOpen] = useState(false);
+    //header con notificaciones
+    const [notiOpen,setNotiOpen]=useState(false);
+
     return(
         <div>
             <div className="flex justify-center items-center text-center" >
@@ -63,6 +66,24 @@ function Headers(){
                             <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500" >Perfil</a>
                             <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500" >Configuracion</a>
                             <a href="#" className="block px-4 py-2 text-sm  hover:bg-gray-100 transition-colors duration-500" >Cerrar Sesion</a>
+                        </div>
+                    )}
+                </div>
+
+                <div className="flex justify-between items-center border border-gray-200  rounded-lg shadow-lg px-4 py-3 relative">
+                    <h3 className="font-bold">App</h3>
+                    <button
+                    onClick={() => setNotiOpen(!notiOpen)}
+                    className="relative cursor-pointer shadow-lg rounded-full p-1 bg-black">
+                        🔔
+                        <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse "></span>
+                    </button>
+                    {notiOpen && (
+                        <div className="absolute top-full right-0 mt-2 w-56 border border-gray-200 rounded-lg overflow-hidden">
+                            <div className="px-4 py-2 text-sm font-bold border-b border-gray-100">Notificaciones</div>
+                            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500">Nuevo Mensaje de Ana</a>
+                            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500">Tu pedido fue enviado</a>
+                            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500">3 personas te mencionaron</a>
                         </div>
                     )}
                 </div>
