@@ -7,6 +7,8 @@ function Headers(){
     const [notiOpen,setNotiOpen]=useState(false);
     //header con tabs de navegación
     const [activeTab,setActiveTab] = useState("inicio");
+    //dark mode toggle
+    const [darkMode,setDarkMode] = useState(false);
 
     return(
         <div>
@@ -109,6 +111,19 @@ function Headers(){
                     className={`text-sm pb-1 cursor-pointer transition-colors duration-500
                     ${activeTab === "contacto" ? "text-black font-bold border-b-2 border-black" : "text-gray-400 border-transparent"}`}>
                         Contacto
+                    </button>
+                </div>
+
+                <div className={`flex justify-between items-center rounded-lg shadow-lg px-4 py-3 border transition-colors duration-300
+                    ${darkMode ? "bg-gray-900" : "bg-white border border-gray-200"}`}>
+                    <h3 className={`font-bold text-lg transition-colors duration-300
+                        ${darkMode ? "text-white" : "text-black"}`}>
+                            App
+                        </h3>
+                    <button
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="cursor-pointer text-xl">
+                        {darkMode ? "🌙" : "☀️"}
                     </button>
                 </div>
 
