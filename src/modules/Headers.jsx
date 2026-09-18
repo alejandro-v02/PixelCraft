@@ -11,6 +11,8 @@ function Headers(){
     const [darkMode,setDarkMode] = useState(false);
     //menú hamburguesa (mobile)
     const [mobileMenuOpen,setMobileMenuOpen]= useState(false);
+    //header con breadcrumbs
+    const breadcrumbs=["Inicio", "Productos","Zapatos"];
 
     return(
         <div>
@@ -152,6 +154,21 @@ function Headers(){
                             </div>
                         </div>
                     )}
+                </div>
+
+                <div className="flex items-center justify-center border border-gray-200 rounded-lg shadow-lg px-4 py-3 ">
+                    {breadcrumbs.map((item, index) => (
+                        <div key={index} className="flex items-center">
+                            <span className={index === breadcrumbs.length - 1
+                                ? "font-bold text-black"
+                                : "text-gray-400 hover:text-gray-600 cursor-pointer transition-colors duration-200"}>
+                                {item}
+                            </span>
+                            {index < breadcrumbs.length -1 && (
+                                <span className="mx-2 text-gray-300">→</span>
+                            )}
+                        </div>
+                    ))}
                 </div>
 
             </div>
