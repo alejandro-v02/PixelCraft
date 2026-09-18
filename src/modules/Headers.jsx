@@ -7,8 +7,10 @@ function Headers(){
     const [notiOpen,setNotiOpen]=useState(false);
     //header con tabs de navegación
     const [activeTab,setActiveTab] = useState("inicio");
-    //dark mode toggle
+    //modo oscuro a claro
     const [darkMode,setDarkMode] = useState(false);
+    //menú hamburguesa (mobile)
+    const [mobileMenuOpen,setMobileMenuOpen]= useState(false);
 
     return(
         <div>
@@ -125,6 +127,31 @@ function Headers(){
                     className="cursor-pointer text-xl">
                         {darkMode ? "🌙" : "☀️"}
                     </button>
+                </div>
+
+                <div className="flex justify-between items-center border border-gray-200 rounded-lg shadow-lg px-4 py-3">
+                    <h3 className="font-bold  text-lg">App</h3>
+                    <button
+                    onClick={()=> setMobileMenuOpen(true)}
+                    className="cursor-pointer text-2xl">
+                        ☰
+                    </button>
+                    {mobileMenuOpen && (
+                        <div className="fixed inset-0 bg-black/50 z-50 flex justify-end">
+                            <div className="w-64 h-full bg-white p-6">
+                                <button
+                                onClick={()=> setMobileMenuOpen(false)}
+                                className="text-2xl cursor-pointer mb-6">
+                                    ✕
+                                </button>
+                                <nav className="flex flex-col gap-4">
+                                    <a href="#" className="text-gray-700 hover:text-black">Inicio</a>
+                                    <a href="#" className="text-gray-700 hover:text-black">Productos</a>
+                                    <a href="#" className="text-gray-700 hover:text-black">Contacto</a>
+                                </nav>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
             </div>
