@@ -5,6 +5,8 @@ function Headers(){
     const [menuOpen,setMenuOpen] = useState(false);
     //header con notificaciones
     const [notiOpen,setNotiOpen]=useState(false);
+    //header con tabs de navegación
+    const [activeTab,setActiveTab] = useState("inicio");
 
     return(
         <div>
@@ -86,6 +88,28 @@ function Headers(){
                             <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500">3 personas te mencionaron</a>
                         </div>
                     )}
+                </div>
+
+                <div className="flex items-center gap-6 border border-gray-200 rounded-lg shadow-lg px-4 py-3">
+                    <h3 className="font-bold text-lg">App</h3>
+                    <button
+                    onClick={()=> setActiveTab("inicio")}
+                    className={`text-sm pb-1 cursor-pointer transition-colors duration-500
+                    ${activeTab === "inicio" ? "text-black font-bold border-b-2 border-black" : "text-gray-400 border-transparent"}`}>
+                        Inicio
+                    </button>
+                    <button
+                    onClick={()=> setActiveTab("productos")}
+                    className={`text-sm pb-1 cursor-pointer transition-colors duration-500
+                    ${activeTab === "productos" ? "text-black font-bold border-b-2 border-black" : "text-gray-400 border-transparent"}`}>
+                        Productos
+                    </button>
+                    <button
+                    onClick={()=> setActiveTab("contacto")}
+                    className={`text-sm pb-1 cursor-pointer transition-colors duration-500
+                    ${activeTab === "contacto" ? "text-black font-bold border-b-2 border-black" : "text-gray-400 border-transparent"}`}>
+                        Contacto
+                    </button>
                 </div>
 
             </div>
