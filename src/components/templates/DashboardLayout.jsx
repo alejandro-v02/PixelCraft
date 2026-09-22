@@ -7,6 +7,7 @@ import Users from "../../modules/Users";
 import Buttons from "../../modules/Buttons";
 import SearchBar from '../../modules/Search-bar';
 import Headers from "../../modules/Headers";
+import Cards from "../../modules/Cards";
 
 function DashboardLayout({modules}){
     const [selectedModuleId,setSelectedModuleId]=useState(modules[0].id);
@@ -17,6 +18,7 @@ function DashboardLayout({modules}){
         buttons:Buttons,
         searchbar:SearchBar,
         headers:Headers,
+        cards:Cards,
     };
 
     const SelectedComponent=moduleComponent[selectedModuleId];
