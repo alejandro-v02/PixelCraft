@@ -24,6 +24,14 @@ function Cards(){
                     </p>
                 </div>
             </div>
+
+            <div className="w-64 border border-gray-200 rounded-lg shadow-lg p-4
+            transition-all duration-500 hover:translate-y-3 hover:shadow-xl cursor-pointer">
+                <h3 className="font-bold text-lg mb-2">Hover Lift Card</h3>
+                <p className="text-sm text-gray-500">
+                    Pasa el mouse por encima para ver el efecto.
+                </p>
+            </div>
             
             </div>
         </div>
