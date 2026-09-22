@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState } from "react";
 
 function Headers(){
     //header con dropdown de usuario
@@ -13,6 +13,7 @@ function Headers(){
     const [mobileMenuOpen,setMobileMenuOpen]= useState(false);
     //header con breadcrumbs
     const breadcrumbs=["Inicio", "Productos","Zapatos"];
+
 
     return(
         <div>
@@ -70,10 +71,10 @@ function Headers(){
                     className="flex items-center w-8 h-8 rounded-full bg-black text-white justify-center font-bold gap-2 cursor-pointer">
                         A</button>
                     {menuOpen && (
-                        <div className="absolute top-full right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
-                            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500" >Perfil</a>
-                            <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500" >Configuracion</a>
-                            <a href="#" className="block px-4 py-2 text-sm  hover:bg-gray-100 transition-colors duration-500" >Cerrar Sesion</a>
+                        <div className="absolute top-full right-0 mt-2 w-40 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg overflow-hidden ">
+                            <a href="#" className="block px-4 py-2 text-sm  hover:bg-gray-100 transition-colors duration-500" >Perfil</a>
+                            <a href="#" className="block px-4 py-2 text-sm  hover:bg-gray-100 transition-colors duration-500" >Configuracion</a>
+                            <a href="#" className="block px-4 py-2 text-sm   hover:bg-gray-100 transition-colors duration-500" >Cerrar Sesion</a>
                         </div>
                     )}
                 </div>
@@ -87,7 +88,7 @@ function Headers(){
                         <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse "></span>
                     </button>
                     {notiOpen && (
-                        <div className="absolute top-full right-0 mt-2 w-56 border border-gray-200 rounded-lg overflow-hidden">
+                        <div className="absolute top-full right-0 mt-2 w-56 border border-gray-200 rounded-lg overflow-hidden backdrop-blur-lg ">
                             <div className="px-4 py-2 text-sm font-bold border-b border-gray-100">Notificaciones</div>
                             <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500">Nuevo Mensaje de Ana</a>
                             <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-500">Tu pedido fue enviado</a>
@@ -170,6 +171,7 @@ function Headers(){
                         </div>
                     ))}
                 </div>
+
 
             </div>
         </div>
