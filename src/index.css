@@ -7,3 +7,9 @@
   /* Opción B: Crear la clase específica "font-poppins" */
   --font-poppins: 'Poppins', sans-serif;
 }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
