@@ -22,15 +22,17 @@ function DashboardLayout({modules}){
     const SelectedComponent=moduleComponent[selectedModuleId];
 
     return(
-        <div className="flex gap-4" >
+        <div className="flex h-screen overflow-hidden" >
         <Sidebar
         modules={modules}
         onSelectModule={setSelectedModuleId}
         activeModule={selectedModuleId}
         />
-        <div className="flex-1 p-4" >
+        <div className="flex-1 flex flex-col min-w-0 h-screen" >
             <Header title={"Mi App"} />
-            <SelectedComponent/>
+            <div className="flex-1 overflow-y-auto p-4">
+                <SelectedComponent/>
+            </div>
         </div>
         </div>
     );
