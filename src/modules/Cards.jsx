@@ -32,6 +32,20 @@ function Cards(){
                     Pasa el mouse por encima para ver el efecto.
                 </p>
             </div>
+
+            <div className="w-96 flex border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                <img
+                    src="https://picsum.photos/200/200"
+                    alt="Card image"
+                    className="w-32 h-32 object-cover"
+                />
+                <div className="p-4 flex-1">
+                    <h3 className="font-bold text-lg mb-2">Horizontal Card</h3>
+                    <p className="text-sm text-gray-500">
+                        El texto va al lado de la imagen, no debajo.
+                    </p>
+                </div>
+            </div>
             
             </div>
         </div>
